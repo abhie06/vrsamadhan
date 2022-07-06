@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<style>
+  input[type="first_name"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 0px 40px 0px 0px;
+    box-sizing: border-box;
+
+  }
+input[type="first_name"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+input[type="last_name"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type="last_name"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="mobile"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+  }
+  input[type="mobile"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="date"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+  }
+  input[type="date"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="to_date"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 40px 0px 0px 0px;
+    box-sizing: border-box;
+  }
+  input[type="to_date"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="email"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 0px 40px 0px 0px;
+    box-sizing: border-box;
+  }
+  input[type="email"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="pin_code"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type="pin_code"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="submit"] {
+    border-radius: 5px ;
+    background-color: #12c2e0;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 20px 20px 0px 0px;
+    cursor: pointer;
+  }
+  input[type="pan"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 0px 40px 0px 0px;
+    box-sizing: border-box;
+  }
+  input[type="pan"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="gst"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type="gst"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="address"], textarea {
+  border-radius: 5px;
+  width:100%;
+  resize: vertical;
+  padding:50px 50px;
+  margin: 8px 0px;
+  box-sizing: border-box;
+  }
+  input[type="address"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="account_number"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+  }
+  input[type="account_number"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="ifsc_code"] {
+    border-radius: 5px;
+    width: 30%;
+    padding: 12px 1px;
+    margin: 8px 0px;
+    box-sizing: border-box;
+  }
+  input[type="ifsc_code"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  input[type="other"] {
+    border-radius: 5px;
+    width: 100%;
+    padding: 50px 50px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type="other"]:focus {
+    border: 4px solid rgb(153, 209, 241);
+  }
+  
+select {
+    border:0;
+    height:32px;
+    border:2px solid #161616;
+    width:800px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+
+}
+
+</style>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registration</title>
+
+
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'> 
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media ='screen' href='main.css'
+    <script src='main.js'></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+</head>
+<body bgcolor= #F5F5F5>
+    <form action="register" method="post">
+        {% csrf_token %}
+        <input type="button" value="Go back!" onclick="history.back()">
+        <h1>Upload New Agreement</h1>
+        <h4>Your username is : {{request.user}}</h4>
+        <label for="approver"><h3>Select your Approver </h3></label>
+        <select id="approver" name="approver">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+        </select><br>
+        <input type = "first_name" name = "first_name" placeholder="First Name/Company Name">
+        <input type ="last_name" name = "last_name" placeholder="Last Name"><br>
+        <input type = "email" name ="email" placeholder="Email">
+        <input type = "mobile" name = "mobile" placeholder="Mobile"><br>
+        <label for="from_date" style="font-family:verdana"><h4>From Date: </h4></label>
+        <input type="date" id="from_date" name="from_date">
+        <label for="to_date" style="font-family:verdana"><h4>To Date: </h4></label>
+        <input type="date" id="to_date" name="to_date"><br>
+        <label for="service_category"><h3>Service Category: </h3></label>
+        <select id="service_category" name="service_category">
+          <option value="ADVERTISMENT">Advertisment</option>
+          <option value="CONSULTANCY">Consultancy</option>
+          <option value="SUPPORT_SERVICE">Service</option>
+          <option value="RENT">Rent</option>
+        </select><br>
+        
+        <input type ="pan" name ="pan" placeholder="PAN">
+        <input type =gst name ="gst" placeholder="GST"><br>
+        <input type ="address" name = "address" placeholder="Address"><br>
+        <input type ="pin_code" name = "pin_code" placeholder="PIN CODE">
+        <label for="service_category"><h3>Branch Name : </h3></label>
+        <select id="branch_name" name="branch_name">
+          <option value="AHMEDABAD">Ahmedabad</option>
+          <option value="BOMBAY">Bombay</option>
+          <option value="SHIMLA">Shimla</option>
+        </select><br>
+        <input type ="account_number" name ="account_number" placeholder="Account Number">
+        <input type = "ifsc_code" name ="ifsc_code" placeholder="IFSC Code"><br>
+        <input type = "other" name ="other" placeholder="Other"><br>
+        <label for ="agreement_document" style = "font-family: verdana"><h4>Agreement Document: </h4> </label><br>
+        <input type ="file" id="agreement_document" name = "agreement_document" accept="image/*">
+        <label for ="pan_document" style = "font-family: verdana"><h4>PAN Document: </h4> </label><br>
+        <input type ="file" id="pan_document" name = "pan_document" accept="image/*">
+        <label for ="gst_document" style = "font-family: verdana"><h4>GST Document: </h4> </label><br>
+        <input type ="file" id="gst_document" name = "gst_document" accept="image/*">
+        <label for ="bank_document" style = "font-family: verdana"><h4>Bank Document: </h4> </label><br>
+        <input type ="file" id="bank_document" name = "bank_document" accept="image/*">
+        <label for ="other_document" style = "font-family: verdana"><h4>Other Document: </h4> </label><br>
+        <input type ="file" id="other_document" name = "other_document" accept="image/*"><br>
+
+      
+    
+       
+        <input type ="submit">
+
+    </form>
+</body>
+</html>
