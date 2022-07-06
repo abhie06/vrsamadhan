@@ -1,0 +1,93 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!doctype html>
+<html class="no-js" lang="zxx">
+    <style>
+        .companies{
+            border:0;
+            height:32px;
+            border:2px solid #161616;
+            margin: 100px 100px 100px 100px;
+            width:800px;
+            box-sizing: border-box;
+            -webkit-appearance: none;
+        
+        }
+    </style>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Agreement Module</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{%static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{%static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{%static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{%static 'css/flaticon.css'%}">
+    <link rel="stylesheet" href="{%static 'css/gijgo.css' %}">
+    <link rel="stylesheet" href="{%static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{%static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{%static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="{%static 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css' %}">
+
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+    <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+</head>
+
+<body bgcolor= "red">
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <span> Hello, {{request.user}},</span>
+              <a href=" {% url 'logoutPage' %}" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-log-out"></span> Log out
+              </a><br>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+                          
+    <!-- header-end -->
+    <!-- slider_area_start -->
+    <!-- Example split danger button -->
+ <br> <select name="companies" id="companies">
+        <label for="companies">Choose a company :</label><hr>
+        {% for dest in dests %}
+            <option >{{dest.name}}</option>
+                {% endfor %}
+                </select><br>
+               <a href="{% url 'register' %}" class ="boxed-btn4">Submit</a><hr><br>
+    
+    <!-- slider_area_end -->
+                <a href="{% url 'form' %}" class= "boxed-btn3">Applications Submitted</a><hr>
+                
+    <h1 style="font-family: Helvetica; font-size:38px;">Approval</h1><br><hr>
+
+                <a href="{% url 'permission' %}" class ="boxed-btn3">Agreements Awaiting Approval</a>
+                <a href= "{% url 'approve' %}" class ="boxed-btn3"> APPROVED AGREEMENT</a>
+                <a href="{% url 'reject' %}" class="boxed-btn3"> REJECTED</a>
+
+</body>
+ 
+</html>
