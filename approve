@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' type='text/css' media ='screen' href='main.css'
+    <script src='main.js'></script>
+    
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      
+</style>
+<body>
+    <table>
+        <tr>
+          <th> Id</th>
+          <th>Status</th>
+          <th>Last Name </th>
+          <th>First Name </th>
+          <th>Service Category</th>
+          <th>From</th>
+          <th>To</th>
+          <th colspan = "2">Action</th>
+        </tr>
+        {% for perm in perms %}
+        <tr>
+            {% if perm.approved == 1 %}
+        <td>{{perm.id}}</a></td>
+        <td>Approved </td>
+         <td> {{perm.last_name}} </td>
+         <td>{{perm.first_name}}</td>
+         <td>{{perm.service_category}}</td>
+         <td> {{perm.to_date}}</td>
+         <td>{{perm.from_date}}</td>
+         
+         <td><button class ="btn btn-success" disabled="disabled">Approved</button></td>
+         {% endif %}
+        </tr>
+        {% endfor %}
+    
