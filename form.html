@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media ='screen' href='main.css'
+    <script src='main.js'></script>
+    
+</head>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+      }
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      
+</style>
+<body>
+  
+  <table>
+    <th> ID </th>
+    <th> First Name </th>
+    <th> Last Name </th>
+    <th> Service Category </th>
+    <th> From </th>
+    <th> To </th>
+  {% for reg in regs %}
+  <tr>
+     <td> <a href = "{% url 'show' reg.id %}" class = "btn btn-warning btn-sm">{{reg.id}}</a></td>
+     <td> {{reg.first_name}}</td>
+     <td>{{reg.last_name}}</td>
+     <td>{{reg.service_category}}</td>
+     <td>{{reg.to_date}}
+     </td>
+     <td>{{reg.from_date}}</td>
+  </tr>
+  {% endfor %} 
+</table>
+        
+      
+</body>
+</html>
